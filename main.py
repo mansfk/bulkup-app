@@ -24,10 +24,10 @@ if st.button("Submit"):
     }
     response = supabase.table("weight_logs").insert(data).execute()
 
-    if response.error is None:
-        st.success("✅ Weight logged successfully.")
-    else:
-        st.error(f"❌ Failed to log weight: {response.error.message}")
+    if isinstance(response.data, list) or response.data is not None:
+    st.success("✅ Weight logged successfully.")
+else:
+    st.error("❌ Failed to log weight.")
 
 # Fetch and display historical weights
 st.subheader("📈 Weight History")
