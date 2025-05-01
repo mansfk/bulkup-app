@@ -25,7 +25,7 @@ if st.button("Submit"):
     response = supabase.table("weight_logs").insert(data).execute()
 
     if isinstance(response.data, list) or response.data is not None:
-    st.success("✅ Weight logged successfully.")
+        st.success("✅ Weight logged successfully.")
 else:
     st.error("❌ Failed to log weight.")
 
