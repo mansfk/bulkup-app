@@ -41,7 +41,12 @@ if page == "🏠 Onboarding":
         goal = st.radio("Primary Goal", ["Gain Weight", "Build Muscle", "Both"])
         gender = st.radio("Gender", ["Male", "Female", "Other"])
         age = st.number_input("Age", min_value=10, max_value=80, value=18, step=1)
-        activity = st.selectbox("Activity Level", ["Sedentary", "Lightly Active", "Active", "Very Active"])
+        activity = st.selectbox("How often do you exercise per week?", [
+    "0 days (Sedentary)",
+    "1–2 days (Light)",
+    "3–4 days (Moderate)",
+    "5–6 days (Heavy)",
+    "7 days (Very intense)"])
         current_weight = st.number_input("Current Weight (kg)", min_value=30.0, max_value=200.0, value=70.0, step=0.5)
         target_weight = st.number_input("Target Weight (kg)", min_value=current_weight+1, max_value=300.0, value=current_weight+5, step=0.5)
         submitted = st.form_submit_button("Create Plan")
